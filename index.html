@@ -1,143 +1,49 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>TG-ANMOL</title>
-<meta charset="UTF-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@1.1.4/dist/hls.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.6.12/dist/plyr.css"/>
-<script src="https://cdn.jsdelivr.net/npm/plyr@3.6.12/dist/plyr.min.js"></script>
-<style>
-html {
-font-family: sans-serif;
-background: #000;
-}
-.plyr {
-height: 100%;
-width :100%;
-}
-:root {
---plyr-color-main: #d9230f;
-}
-.loading {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #000;
-        z-index: 9999;
-    }
-    
-    .loading-text {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        text-align: center;
-        width: 100%;
-        height: 100px;
-        line-height: 100px;
-    }
-    
-    .loading-text span {
-        display: inline-block;
-        margin: 0 5px;
-        color: #00b3ff;
-        font-family: 'Quattrocento Sans', sans-serif;
-    }
-    
-    .loading-text span:nth-child(1) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 0s infinite linear alternate;
-    }
-    
-    .loading-text span:nth-child(2) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 0.2s infinite linear alternate;
-    }
-    
-    .loading-text span:nth-child(3) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 0.4s infinite linear alternate;
-    }
-    
-.loading-text span:nth-child(4) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 0.6s infinite linear alternate;
-    }
-    
-    .loading-text span:nth-child(5) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 0.8s infinite linear alternate;
-    }
-    
-    .loading-text span:nth-child(6) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 1s infinite linear alternate;
-    }
-    
-    .loading-text span:nth-child(7) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 1.2s infinite linear alternate;
-    }
-    .loading-text span:nth-child(8) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 1.4s infinite linear alternate;
-    }
-    .loading-text span:nth-child(9) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 1.6s infinite linear alternate;
-    }
-    .loading-text span:nth-child(10) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 1.8s infinite linear alternate;
-    }
-    .loading-text span:nth-child(11) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 2s infinite linear alternate;
-    }
-    .loading-text span:nth-child(12) {
-        filter: blur(0px);
-        animation: blur-text 1.5s 2.2s infinite linear alternate;
-    }
-    @keyframes blur-text {
-        0% {
-            filter: blur(0px);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sony Ten 5 HD</title> 
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
         }
-        100% {
-            filter: blur(4px);
+        #player {
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
         }
-    }
-
-    .plyr__video-wrapper::before {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 10;
-        content: '';
-        height: 35px;
-        width: 35px;
-        background-size: 35px auto, auto;
-    }
-
-</style>
+        .telegram-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #0088cc;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .telegram-toggle img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+    </style>
 </head>
 <body>
- <div id="loading" class="loading">
-<div class="loading-text">
-    <span class="loading-text-words" style="color:#d9230f;">T</span>
-    <span class="loading-text-words" style="color:#d9230f;">G</span>
-    <span class="loading-text-words" style="color:#d9230f;">-</span>
-    <span class="loading-text-words" style="color:#d9230f;">A</span>
-    <span class="loading-text-words" style="color:#d9230f;">N</span>
-    <span class="loading-text-words" style="color:#d9230f;">M</span>
-    <span class="loading-text-words" style="color:#d9230f;">O</span><span class="loading-text-words" style="color:#d9230f;">L</span></div>
- </div>
+<a href="https://t.me/+9GGWu7NnEFc4OTBl" class="telegram-toggle">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+    Join Telegram
+</a>
 <div id="player"></div>
+
 <script src="//ssl.p.jwpcdn.com/player/v/8.25.1/jwplayer.js"></script>
 <script>
     jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
@@ -147,7 +53,7 @@ width :100%;
     }
 
     function extractTokenFromLink(link) {
-        var tokenMatch = link.match(/__hdnea__=([^&]+)/);
+        var tokenMatch = link.match(/hdnea=([^&]+)/);
         return tokenMatch ? tokenMatch[1] : '';
     }
 
@@ -158,8 +64,8 @@ width :100%;
                 url = url.replace('tv.media.jio.com', 'jio.drmlive.au/jio');
             }
 
-            if ((url.includes('.dash') || url.includes('.m3u8') || url.includes('.ts')) && token && !url.includes('__hdnea__=')) {
-                url += (url.includes('?') ? '&' : '?') + '__hdnea__=' + token;
+            if ((url.includes('.dash')  url.includes('.m3u8')  url.includes('.ts')) && token && !url.includes('hdnea=')) {
+                url += (url.includes('?') ? '&' : '?') + 'hdnea=' + token;
             }
 
             originalOpen.apply(this, arguments);
@@ -167,11 +73,11 @@ width :100%;
     }
 
     function playVideo() {
-        var link = "https://jiotvmblive.cdn.jio.com/bpk-tv/Six_HD_MOB/Fallback/Six_HD_MOB-audio_98835_hin=98800-video=1272000.m3u8?__hdnea__=st=1739513102~exp=17395";
+        var link = "https://jiotvmblive.cdn.jio.com/bpk-tv/Six_HD_MOB/Fallback/index.m3u8?hdnea=st=1739513102~exp=1739599502~acl=/*~hmac=87911d4429210742b3f0e081bd4be8cb0cc39b6201fd09f3ea3d9d8928e1e77e";
         var tokenValue = extractTokenFromLink(link);
 
         if (tokenValue) {
-            setCookie("__hdnea__", tokenValue);
+            setCookie("hdnea", tokenValue);
             interceptNetworkRequests(tokenValue);
         }
 
@@ -197,13 +103,4 @@ width :100%;
     window.onload = playVideo;
 </script>
 </body>
-</html>
-        
- 
-
-
-<script> alert("This Site Can Be Deleted Anytime So Join Our Telegram Channel Given Button In Next Page")
-</script>
-    
-  </body>
 </html>
