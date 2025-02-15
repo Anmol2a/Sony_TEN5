@@ -4,18 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TNT 1</title>
-  <!-- Include Shaka Player from the CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/3.2.2/shaka-player.compiled.js"></script>
 </head>
 <body>
   <video id="video" width="640" height="360" controls></video>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Initialize Shaka Player on the video element
       var video = document.getElementById('video');
       var player = new shaka.Player(video);
-
-     
       const drmConfig = {
         drm: {
           clearKeys: {
