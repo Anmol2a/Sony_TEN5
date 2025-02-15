@@ -1,108 +1,39 @@
-
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DD Sports</title>
-    <link rel="shortcut icon" href="https://live.drmlive.in/Player.png" />
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-        }
-        #player {
-            position: absolute;
-            width: 100% !important;
-            height: 100% !important;
-        }
-        .telegram-toggle {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: #0088cc;
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        .telegram-toggle img {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Sky Sports Mix - @criccoder</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
+  <style>
+    body {
+      margin: 0px
+    }
+
+    .jwplayer {
+      position: absolute !important
+    }
+
+    .jwplayer.jw-flag-aspect-mode {
+      min-height: 100%;
+      max-height: 100%
+    }
+  </style>
 </head>
+
 <body>
-<a href="https://t.me/+_RiCu2cz5TkxZmU1" class="telegram-toggle">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
-    Join Telegram
-</a>
-<div id="player"></div>
-
-<script src="//ssl.p.jwpcdn.com/player/v/8.25.1/jwplayer.js"></script>
-<script>
-    jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
-
-    function setCookie(name, value) {
-        document.cookie = name + "=" + value + "; path=/";
-    }
-
-    function extractTokenFromLink(link) {
-        var tokenMatch = link.match(/__hdnea__=([^&]+)/);
-        return tokenMatch ? tokenMatch[1] : '';
-    }
-
-    function interceptNetworkRequests(token) {
-        const originalOpen = XMLHttpRequest.prototype.open;
-        XMLHttpRequest.prototype.open = function(method, url) {
-            if (url.startsWith('https://tv.media.jio.com/')) {
-                url = url.replace('tv.media.jio.com', 'jio.drmlive.au/jio');
-            }
-
-            if ((url.includes('.dash') || url.includes('.m3u8') || url.includes('.ts')) && token && !url.includes('__hdnea__=')) {
-                url += (url.includes('?') ? '&' : '?') + '__hdnea__=' + token;
-            }
-
-            originalOpen.apply(this, arguments);
-        };
-    }
-
-    function playVideo() {
-        var link = "https://jiotvmblive.cdn.jio.com/bpk-tv/DD_Sports_MOB/Fallback/index.m3u8?__hdnea__=st=1739596088~exp=1739682488~acl=/*~hmac=62afb639b79046c0e58f267499ecd62675df6862e7cfebfe83e0fd30503cfa99";
-        var tokenValue = extractTokenFromLink(link);
-
-        if (tokenValue) {
-            setCookie("__hdnea__", tokenValue);
-            interceptNetworkRequests(tokenValue);
+  <div id="jwplayerDiv"></div>
+  <script type="text/javascript">if(confirm("Join Our Telegram Channel @criccoder")) { window.location.href = "https://telegram.me/criccoder" }
+    jwplayer("jwplayerDiv").setup({
+      file: "https://linear034-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportsmix)/manifest_720.mpd", position: 'bottom',
+      "autostart": true,
+      "stretching": "",
+      "width": "100%",
+      type: "dash",
+      drm: {
+        "clearkey": {
+          "keyId": "00051d6cdd7231b7370dcf8eb66cf618",
+          "key": "06f88d449edec6e4389950b0bda5cd68"
         }
-
-        var playerInstance = jwplayer("player");
-        playerInstance.setup({
-            playlist: [{
-                file: link,
-                type: "hls"
-            }],
-            width: "100%",
-            aspectratio: "16:9",
-            autostart: true,
-            cast: {
-                appid: 'CC1AD845'
-            }
-        });
-
-        playerInstance.on('beforePlay', function() {
-            interceptNetworkRequests(tokenValue);
-        });
-    }
-
-    window.onload = playVideo;
-</script>
-</body>
-</html>
+      }
+    });    
+  </script>
